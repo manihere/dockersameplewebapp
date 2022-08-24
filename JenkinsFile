@@ -6,14 +6,15 @@ pipeline{
             echo "Packaging Artifacts"
             sh 'mvn -f pom.xml clean package'
         }
-        steps{
-            sucess{
-            echo "Archiving Artifacts"
-            archiveArtifacts artifacts : "**/*.war"
+        post {
+            steps{
+                sucess{
+                echo "Archiving Artifacts"
+                archiveArtifacts artifacts : "**/*.war"
         }
         }
         }
-
+    }
         stage('Deploy to Docker'){
                 steps{
                     sh 'docker build . -t dockersameplewebapp:${env.BUILD_ID}'
