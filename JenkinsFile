@@ -17,7 +17,7 @@ pipeline{
                 steps{
                     echo "pwd"
                     echo "ls -a"
-                    sh "docker build -f DockerFile -t dockersameplewebapp:${env.BUILD_ID}"
+                    sh "docker build . -t dockersameplewebapp:${env.BUILD_ID}"
                 }
         }
     }
