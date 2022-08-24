@@ -6,9 +6,11 @@ pipeline{
             echo "Packaging Artifacts"
             sh 'mvn -f pom.xml clean package'
         }
-        sucess{
+        steps{
+            sucess{
             echo "Archiving Artifacts"
             archiveArtifacts artifacts : "**/*.war"
+        }
         }
         }
 
