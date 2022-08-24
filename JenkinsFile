@@ -15,8 +15,8 @@ pipeline{
     }
         stage('Deploy to Docker'){
                 steps{
-                    echo pwd
-                    echo ls -a
+                    echo "pwd"
+                    echo "ls -a"
                     sh "docker build . -t dockersameplewebapp:${env.BUILD_ID}"
                 }
         }
